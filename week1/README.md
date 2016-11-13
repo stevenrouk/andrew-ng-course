@@ -1,4 +1,4 @@
-# Week 1 at a High Level
+# Week 1 at a high level
 
 Let's say we have some regression problem, like predicting the price of a house based on how big the house is (in square feet). We solve this by finding a "hypothesis" function where we can plug in the size of the house and get out a number of what we think the price will be.
 
@@ -17,3 +17,9 @@ In mathy language, we define a cost function of our hypothesis function paramete
 So we have a cost function that determines how bad our hypothesis is. How do we minimize that cost function? Gradient descent! It's an algorithm for iteratively minimizing a function by picking some values for our parameters, calculating the cost function using those parameters, then seeing how we need to tweak each of our parameters to get a slightly smaller cost function value the next time. If you imagine the cost function as a bowl, we want to pick the next parameters such that we're going slightly more towards the middle of the bowl. That middle of the bowl you can imagine as the minimum of our cost function, which means we will have picked the best hypothesis function we can.
 
 In mathy language, we calculate the partial derivatives of the cost function in order the direction of "greatest slope", then we move in the direction of greatest decrease in the cost function, and repeat until convergence. (Which will be the opposite direction of the direction of greatest increase.) This means a simultaneous update of our parameters based on the partial derivatives. The paramater alpha here in the "learning rate", which is how big of a step we take. theta_j := theta_j - alpha * partial_deriv_j(J(theta_0, theta_1))
+
+This type of gradient descent is called "batch" gradient descent, where every calculation involves all of the training examples.
+
+Note: the curve of J(theta_0, theta_1) may have local minima for arbitrary functions, but our cost function for linear regression only has the one global minimum, so for proper choice of our learning rate alpha we're guaranteed to converge to that global minimum.
+
+Linear Algebra Note: When talking about "vectors", we're talking specifically about column vectors. I.e., nx1 matrices.
